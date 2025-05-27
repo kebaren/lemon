@@ -16,8 +16,6 @@ set(GUI_SOURCE
         src/ui/LemonApp.h
         src/ui/LemonWindow.cpp
         src/ui/LemonWindow.h
-        src/ui/LemonMenu.cpp
-        src/ui/LemonMenu.h
 )
 
 # 创建lemon应用程序

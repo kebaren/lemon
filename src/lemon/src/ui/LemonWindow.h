@@ -4,19 +4,43 @@
 
 #ifndef LEMONWINDOW_H
 #define LEMONWINDOW_H
+#include <gtkmm/button.h>
 #include <gtkmm/headerbar.h>
+#include <gtkmm/hvbox.h>
+#include <gtkmm/menubar.h>
 #include <gtkmm/window.h>
 
-namespace GUI {
+namespace GUI
+{
+    class LemonMenu : public Gtk::MenuBar
+    {
+    public:
+        LemonMenu();
+        ~LemonMenu();
+    };
 
-class LemonWindow : public Gtk::Window{
-public:
-    LemonWindow();
-    ~LemonWindow();
+    class LemonHeaderBar:  public Gtk::HeaderBar
+    {
+    public:
+        LemonHeaderBar();
+        ~LemonHeaderBar();
+
+    };
+
+
+    class LemonWindow : public Gtk::Window
+    {
+    public:
+        LemonWindow();
+        ~LemonWindow();
+
     private:
-    std::unique_ptr<Gtk::HeaderBar> headerBar;
-};
+        bool header_bar_sttings();
 
+    private:
+        Gtk::HeaderBar headerBar;
+        Gtk::MenuBar menuBar;
+    };
 } // GUI
 
 #endif //LEMONWINDOW_H
