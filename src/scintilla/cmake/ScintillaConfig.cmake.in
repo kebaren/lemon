@@ -1,0 +1,9 @@
+@PACKAGE_INIT@
+
+include("${CMAKE_CURRENT_LIST_DIR}/ScintillaTargets.cmake")
+
+if(NOT TARGET Scintilla::scintilla)
+    add_library(Scintilla::scintilla ALIAS scintilla)
+endif()
+
+check_required_components(Scintilla)
