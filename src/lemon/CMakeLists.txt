@@ -12,8 +12,6 @@ set(CORE_SOURCE
 
 set(GUI_SOURCE
     ${CMAKE_CURRENT_LIST_DIR}/src/ui/main.cpp
-        src/ui/LemonApp.cpp
-        src/ui/LemonApp.h
         src/ui/LemonWindow.cpp
         src/ui/LemonWindow.h
 )
