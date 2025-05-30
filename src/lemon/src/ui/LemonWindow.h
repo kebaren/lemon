@@ -5,7 +5,6 @@
 #ifndef LEMONWINDOW_H
 #define LEMONWINDOW_H
 #include <memory>
-#include <gtkmm/builder.h>
 #include <gtkmm/button.h>
 #include <gtkmm/headerbar.h>
 #include <gtkmm/hvbox.h>
@@ -13,61 +12,55 @@
 #include <gtkmm/window.h>
 #include <gtkmm/comboboxtext.h>
 #include <gtkmm/separatormenuitem.h>
+#include <glibmm/i18n.h>
+#include <gtkmm/frame.h>
+#include <gtkmm/notebook.h>
+#include <gtkmm/paned.h>
+#include <gtkmm/stack.h>
+#include <gtkmm/statusbar.h>
+
+#include "LemonHeaderBar.h"
+#include "LemonActivityBar.h"
+
 
 namespace GUI
 {
-    //editor menubar
-    class LemonMenu : public Gtk::MenuBar
+    class LemonFileMenu : public Gtk::MenuItem
     {
     public:
-        LemonMenu();
-        ~LemonMenu();
-        bool set_file_menu();
-        bool set_edit_menu();
-
+        explicit  LemonFileMenu();
+        ~LemonFileMenu();
     private:
-        Gtk::MenuItem* m_File;
-        Gtk::MenuItem* m_Edit;
-        Gtk::MenuItem* m_View;
-        Gtk::MenuItem* m_Go;
-        Gtk::MenuItem* m_Project;
-        Gtk::MenuItem* m_Help;
-
-        Gtk::Menu     * m_File_Menu;
-        Gtk::SeparatorMenuItem *m_f_seperator;
-        Gtk::SeparatorMenuItem *m_f_seperator2;
-        Gtk::MenuItem* m_f_new_file;
-        Gtk::MenuItem *m_f_new_project;
-        Gtk::MenuItem* m_f_open_file;
-        Gtk::MenuItem* m_f_open_project;
-        Gtk::MenuItem* m_f_save_file;
-        Gtk::MenuItem* m_f_save_all;
-        Gtk::MenuItem* m_f_close_project;
-
-        Gtk::Menu *m_Edit_Menu;
-        Glib::RefPtr<Gtk::Builder> m_builder;
-
-
+        Gtk::Menu m_new_menu,m_file_menu,m_recent_menu;
+        Gtk::SeparatorMenuItem m_separator,m_separator2,m_separator3,m_separator4;
+        Gtk::MenuItem m_new,m_open_file,m_open_project,m_recent_project,m_close_project,
+        m_save_file,m_save_all,m_save_as,m_close,m_close_all,m_exit;;
+        Gtk::MenuItem m_new_file,m_new_project;
+        Gtk::MenuItem m_recent_config;
     };
 
 
-    //eidtor headerbar
-    class LemonHeaderBar : public Gtk::HeaderBar
+
+    //activity bar
+
+
+    class LemonEditRange : public Gtk::Paned{
+    public:
+        LemonEditRange();
+        ~LemonEditRange();
+    private:
+        LemonActivityBar m_ActivityBar;
+        Gtk::Notebook m_noteBook;
+
+    };
+
+    class LemonStatusBar : public Gtk::Statusbar
     {
     public:
-        LemonHeaderBar();
-        ~LemonHeaderBar();
-
+        LemonStatusBar();
+        ~LemonStatusBar();
     private:
-        void initComboBox();
-
-    private:
-        std::unique_ptr<LemonMenu> m_Menu;
-        std::unique_ptr<Gtk::Button> m_Button_run;
-        std::unique_ptr<Gtk::Button> m_Button_debug;
-        std::unique_ptr<Gtk::Button> m_Button_build;
-        std::unique_ptr<Gtk::ComboBoxText> m_ComBox;
-        std::unique_ptr<Gtk::HBox> m_HBox;
+        Gtk::Label m_Label;
     };
 
 
@@ -82,7 +75,11 @@ namespace GUI
 
 
     private:
-        LemonHeaderBar* m_headerbar;
+        LemonHeaderBar m_headerbar;
+        Gtk::VBox m_VBox;
+        LemonEditRange m_EditRange;
+        LemonStatusBar m_StatusBar;
+        Gtk::Frame m_Frame;
     };
 } // GUI
 #endif //LEMONWINDOW_H

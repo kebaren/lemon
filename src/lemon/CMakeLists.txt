@@ -14,6 +14,18 @@ set(GUI_SOURCE
     ${CMAKE_CURRENT_LIST_DIR}/src/ui/main.cpp
         src/ui/LemonWindow.cpp
         src/ui/LemonWindow.h
+        src/ui/LemonApplication.cpp
+        src/ui/LemonApplication.h
+        src/ui/LemonStatusBar.cpp
+        src/ui/LemonStatusBar.h
+        src/ui/LemonHeaderBar.cpp
+        src/ui/LemonHeaderBar.h
+        src/ui/LemonActivityBar.cpp
+        src/ui/LemonActivityBar.h
+        src/ui/LemonEditStack.cpp
+        src/ui/LemonEditStack.h
+        src/ui/LemonMenu.cpp
+        src/ui/LemonMenu.h
 )
 
 # 创建lemon应用程序
