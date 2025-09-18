@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1758199423 source:d:\lemon\lemon\main.c
+1758201249 source:d:\lemon\lemon\main.c
 	<gtk/gtk.h>
+	<glib/gstdio.h>
 
 1752524188 c:\msys64\mingw64\include\gtk-4.0\gtk\gtk.h
 	<gtk/css/gtkcss.h>
@@ -3489,4 +3490,22 @@
 
 1752524188 c:\msys64\mingw64\include\gtk-4.0\gtk\gtkwindowhandle.h
 	<gtk/gtkwidget.h>
+
+1757183011 c:\msys64\mingw64\include\glib-2.0\glib\gstdio.h
+	<glib/gprintf.h>
+	<errno.h>
+	<sys/stat.h>
+
+1757183011 c:\msys64\mingw64\include\glib-2.0\glib\gprintf.h
+	<glib.h>
+	<stdio.h>
+	<stdarg.h>
+
+1757862470 c:\msys64\mingw64\include\sys\stat.h
+	<crtdefs.h>
+	<io.h>
+	<sys/types.h>
+	<_mingw_stat64.h>
+
+1757862470 c:\msys64\mingw64\include\_mingw_stat64.h
 
