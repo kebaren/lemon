@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=lemon
+Icon=lemon
+StartupNotify=true
+Exec=@bin/lemon
